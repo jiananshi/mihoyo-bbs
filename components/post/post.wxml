@@ -1,0 +1,42 @@
+<view class="post">
+  <view class="post__header">
+    <image
+      class="post__avatar"
+      src="//bbs.mihoyo.com/avatar/avatar{{ post.user.avatar }}.png" />
+    <view>
+      <text class="post__username">{{ post.user.nickname }}</text>
+      <view class="post__info">
+        <text>{{ post.user.introduce }}</text>
+        <text>{{ post.forum_name }}</text>
+      </view>
+    </view>
+  </view>
+  <view class="post__body">
+    <view>
+      <text>{{ post.subject }}</text>
+    </view>
+    <view>
+      <text>{{ post.content }}</text>
+    </view>
+    <view class="post__covers">
+      <image
+        class="post__cover"
+        mode="aspectFill"
+        wx:for="{{ post.imgsCover }}"
+        wx:for-item="img"
+        wx:key="{{ index }}"
+        src="{{ img }}" />
+    </view>
+  </view>
+  <view class="post__footer">
+    <view class="post__footercell">
+      <text>{{ post.stat.view_num }}</text>
+    </view>
+    <view class="post__footercell">
+      <text>{{ post.stat.reply_num }}</text>
+    </view>
+    <view class="post__footercell">
+      <text>{{ post.stat.like_num }}</text>
+    </view>
+  </view>
+</view>

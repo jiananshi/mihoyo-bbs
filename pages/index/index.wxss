@@ -25,3 +25,8 @@
   margin-top: -100rpx;
   margin-bottom: 100rpx;
 }
+
+.posts {
+  background-color: #F2F4F5;
+  margin-top: 70rpx;
+}

@@ -24,9 +24,16 @@
     </view>
   </view>
   <view class="chin" />
-  <mhy-swiper 
+  <swiper 
     id="swiper"
     custom-class="swiper"
     images="{{ sliders }}"
     src-prop="cover" />
+  <view class="posts">
+    <post
+      wx:for="{{ post.list }}"
+      wx:for-item="article"
+      post="{{ article }}"
+      wx:key="article.id" />
+  </view>
 </view>
