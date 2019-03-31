@@ -2,6 +2,7 @@ let screenY: number;
 let timer: number;
 
 Component({
+  externalClasses: ['custom-class'],
   properties: {
     images: {
       type: Array,

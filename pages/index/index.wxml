@@ -1,7 +1,32 @@
 <view>
   <mhy-header />
+  <view class="nav">
+    <view 
+      class="nav__item {{ nav.current === 0 ? 'nav__item--active' : '' }}"
+      bindtap="changeNav"
+      data-nav="{{ 0 }}">
+      <text>关注</text>
+    </view>
+    <view
+      class="nav__item {{ nav.current === 1 ? 'nav__item--active' : '' }}"
+      bindtap="changeNav"
+      data-nav="{{ 1 }}">
+      <text>推荐</text>
+    </view>
+    <view
+      wx:for="{{ nav.list }}"
+      wx:for-item="navItem"
+      wx:key="{{ navItem.id }}"
+      class="nav-item {{ (nav.current === 2 + index) ? 'nav__item--active' : '' }}"
+      bindtap="changeNav"
+      data-nav="{{ index + 2 }}">
+      <text>{{ navItem.name }}</text>
+    </view>
+  </view>
+  <view class="chin" />
   <mhy-swiper 
     id="swiper"
+    custom-class="swiper"
     images="{{ sliders }}"
     src-prop="cover" />
 </view>

@@ -1,4 +1,4 @@
-<view class="swiper">
+<view class="swiper custom-class">
   <view 
     style="transform: translateX({{ sliderOffset + 'px' }})"
     class="swiper__window {{ hasReachBoundary ? '' : 'swiper__window--animated' }}">
