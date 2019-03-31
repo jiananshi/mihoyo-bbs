@@ -1,0 +1,27 @@
+<view class="swiper">
+  <view 
+    style="transform: translateX({{ sliderOffset + 'px' }})"
+    class="swiper__window {{ hasReachBoundary ? '' : 'swiper__window--animated' }}">
+    <image 
+      class="swiper__image swiper__image--duplicate" 
+      mode="widthFix"
+      src="{{ images[images.length - 1][srcProp] }}" />
+    <image
+      class="swiper__image {{ index === current ? 'swiper__image--active' : '' }}"
+      mode="widthFix"
+      wx:for="{{ images }}"
+      wx:for-item="image"
+      wx:key="{{ key === null ? index : image.keyProp }}"
+      src="{{ image[srcProp] }}" />
+    <image 
+      class="swiper__image swiper__image--duplicate {{ current === images.length ? 'swiper__image--active' : '' }}"
+      mode="widthFix"
+      src="{{ images[0][srcProp] }}" />
+  </view>
+  <view class="swiper__pagination">
+    <view 
+      class="swiper__paginationitem {{ index === current ? 'swiper__paginationitem--active' : '' }}" 
+      wx:for="{{ images }}"
+      wx:key="{{ index }}" />
+  </view>
+</view>

@@ -1,0 +1,7 @@
+<view>
+  <text>hello world</text>
+  <swiper 
+    id="swiper"
+    images="{{ sliders }}"
+    src-prop="cover" />
+</view>

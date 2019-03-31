@@ -1,0 +1,47 @@
+.swiper {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.swiper__window {
+  display: flex;
+  align-items: center;
+}
+
+.swiper__window--animated {
+  transition: transform .2s ease;
+}
+
+.swiper__image {
+  flex-shrink: 0;
+  width: 90%;
+  transform: scaleY(.9);
+  margin-right: 5px;
+}
+
+.swiper__image--active {
+  transform: scaleY(1);
+}
+
+.swiper__pagination {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 30rpx;
+  display: flex;
+}
+
+.swiper__paginationitem {
+  width: 16rpx;
+  height: 16rpx;
+  background-color: #fff;
+  border-radius: 10rpx;
+  margin: 0 8rpx;
+  opacity: .8;
+  transition: width .2s ease;
+}
+
+.swiper__paginationitem--active {
+  width: 32rpx;
+}
