@@ -1,5 +1,6 @@
 {
   "usingComponents": {
-    "swiper": "/components/swiper/swiper"
+    "mhy-header": "/components/header/header",
+    "mhy-swiper": "/components/swiper/swiper"
   }
 }

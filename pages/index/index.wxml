@@ -1,6 +1,6 @@
 <view>
-  <text>hello world</text>
-  <swiper 
+  <mhy-header />
+  <mhy-swiper 
     id="swiper"
     images="{{ sliders }}"
     src-prop="cover" />

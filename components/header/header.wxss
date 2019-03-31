@@ -1,0 +1,17 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(#00b6ff,#00c3ff) #00c3ff;
+  padding: 15rpx 30rpx;
+  color: #fff;
+}
+
+.header__title {
+  font-weight: 900;
+}
+
+.header__avatar {
+  width: 60rpx;
+  height: 60rpx;
+}
