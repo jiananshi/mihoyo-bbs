@@ -3,5 +3,8 @@
     class="header__avatar"
     src="//bbs.mihoyo.com/avatar/avatarDefault.png" />
   <text class="header__title">崩坏3</text>
-  <text class="header__search">搜索</text>
+  <view>
+    <text>搜索</text>
+    <text>通知</text>
+  </view>
 </view>

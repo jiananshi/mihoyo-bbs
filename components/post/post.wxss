@@ -15,6 +15,7 @@
   height: 64rpx;
   margin-right: 20rpx;
   border-radius: 50%;
+  border: 1px solid #ebeff0;
 }
 
 .post__username {
@@ -49,4 +50,39 @@
   width: 220rpx;
   height: 220rpx;
   margin-right: 5px;
+  border-radius: 5rpx;
+}
+
+.post__tags {
+  display: flex;
+  align-items: center;
+  padding-bottom: 15rpx;
+  margin-bottom: 15rpx;
+}
+
+.post__tag {
+  color: #00b2ff;
+  background-color: #edf6fc;
+  padding: 5rpx 10rpx;
+  font-size: 24rpx;
+  margin-right: 5px;
+  border-radius: 10px;
+  display: inline-block;
+  font-weight: 700;
+}
+
+.post__footer {
+  display: flex;
+  align-items: center;
+  border-top: 2rpx solid #f0f4f5;
+  padding-top: 20rpx;
+}
+
+.post__footercell {
+  flex-grow: 1;
+  flex-shrink: 0;
+  padding: 8rpx 0;
+  text-align: center;
+  font-size: 24rpx;
+  color: #999;
 }

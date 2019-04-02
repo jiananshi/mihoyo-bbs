@@ -1,4 +1,4 @@
-<view>
+<view class="container">
   <mhy-header />
   <view class="nav">
     <view 
@@ -30,8 +30,39 @@
     images="{{ sliders }}"
     src-prop="cover" />
   <view class="posts">
+    <post post="{{ post.list[0] }}" />
+    <view class="hottopics">
+      <view class="hottopics__header">
+        <text class="hottopics__title">热门话题</text>
+        <text class="hottopics__more">更多</text>
+      </view>
+      <view class="hottopics__body">
+        <image 
+          class="hottopics__cover"
+          src="{{ topics[0].cover }}" />
+        <view>
+          <view>
+            <text class="hottopics__subject">#{{ topics[0].name }}#</text>
+          </view>
+          <view>
+            <text class="hottopics__desc">{{ topics[0].desc }}</text>
+          </view>
+        </view>
+      </view>
+      <view class="hottopics__footer">
+        <view 
+          class="hottopics__topic"
+          wx:if="{{ index !== 0 }}"
+          wx:for="{{ topics }}"
+          wx:for-item="topic"
+          wx:key="{{ index }}">
+          <text>{{ topic.name }}</text>
+        </view>
+      </view>
+    </view>
+    <post post="{{ post.list[1] }}" />
     <post
-      wx:for="{{ post.list }}"
+      wx:for="{{ post.listCopy }}"
       wx:for-item="article"
       post="{{ article }}"
       wx:key="article.id" />

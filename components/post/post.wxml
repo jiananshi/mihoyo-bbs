@@ -12,13 +12,16 @@
     </view>
   </view>
   <view class="post__body">
-    <view>
-      <text>{{ post.subject }}</text>
+    <view style="margin-top: 15rpx; margin-bottom: 10rpx;">
+      <text class="post__subject">{{ post.subject }}</text>
     </view>
-    <view>
-      <text>{{ post.content }}</text>
+    <view style="margin-bottom: 15rpx;">
+      <text 
+        class="post__content">{{ post.content }}</text>
     </view>
-    <view class="post__covers">
+    <view 
+      wx:if="{{ post.imgs && post.imgs.length }}"
+      class="post__covers">
       <image
         class="post__cover"
         mode="aspectFill"
@@ -26,6 +29,17 @@
         wx:for-item="img"
         wx:key="{{ index }}"
         src="{{ img }}" />
+    </view>
+  </view>
+  <view 
+    wx:if="{{ post.topics && post.topics.length }}"
+    class="post__tags">
+    <view
+      wx:for="{{ post.topics }}"
+      wx:for-item="tag"
+      wx:key="{{ tag.id }}"
+      class="post__tag">
+      <text>#{{ tag.name }}</text>
     </view>
   </view>
   <view class="post__footer">

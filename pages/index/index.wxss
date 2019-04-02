@@ -30,3 +30,58 @@
   background-color: #F2F4F5;
   margin-top: 70rpx;
 }
+
+.hottopics {
+  background-color: #fff;
+  margin-bottom: 32rpx;
+  padding: 15rpx 30rpx;
+}
+
+.hottopics__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 15rpx;
+}
+
+.hottopics__title {
+  font-weight: 600;
+}
+
+.hottopics__more {
+  color: #999;
+  font-size: 24rpx;
+}
+
+.hottopics__body {
+  display: flex;
+  align-items: center;
+  border-bottom: 2rpx solid #f0f4f5;
+  padding-bottom: 30rpx;
+  margin-bottom: 15rpx;
+}
+
+.hottopics__cover {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 10rpx;
+  border: 2rpx solid #f0f4f5;
+  margin-right: 30rpx;
+}
+
+.hottopics__subject {
+  font-weight: 900;
+  font-size: 34rpx;
+}
+
+.hottopics__desc {
+  color: #999;
+  font-size: 24rpx;
+}
+
+.hottopics__topic {
+  width: 50%;
+  font-size: 24rpx;
+  display: inline-block;
+  margin-bottom: 10rpx;
+}
