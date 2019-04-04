@@ -20,7 +20,7 @@
       class="nav-item {{ (nav.current === 2 + index) ? 'nav__item--active' : '' }}"
       bindtap="changeNav"
       data-nav="{{ index + 2 }}">
-      <text>{{ navItem.name }}</text>
+      <text>{{ navItem.name }}</text> 
     </view>
   </view>
   <view class="chin" />
@@ -62,9 +62,11 @@
     </view>
     <post post="{{ post.list[1] }}" />
     <post
-      wx:for="{{ post.listCopy }}"
+      wx:if="{{ index > 1 }}"
+      wx:for="{{ post.list }}"
       wx:for-item="article"
       post="{{ article }}"
       wx:key="article.id" />
+    <text>正在加载</text>
   </view>
 </view>

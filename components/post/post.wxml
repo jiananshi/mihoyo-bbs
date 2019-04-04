@@ -1,4 +1,6 @@
-<view class="post">
+<view 
+  bindtap="viewPost"
+  class="post">
   <view class="post__header">
     <image
       class="post__avatar"

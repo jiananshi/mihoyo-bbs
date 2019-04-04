@@ -15,5 +15,33 @@
 		"newFeature": true
 	},
 	"appid": "wxea97d116b9efe7db",
-	"condition": {}
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"list": []
+		},
+		"miniprogram": {
+			"current": 0,
+			"list": [
+				{
+					"id": 0,
+					"name": "post",
+					"pathName": "pages/post/post",
+					"query": "id=39446",
+					"scene": null
+				}
+			]
+		}
+	}
 }

@@ -5,6 +5,11 @@
   background: linear-gradient(#00b6ff,#00c3ff) #00c3ff;
   padding: 15rpx 30rpx;
   color: #fff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
 }
 
 .header__title {

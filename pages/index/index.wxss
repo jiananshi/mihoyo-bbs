@@ -6,6 +6,11 @@
   color: #fff;
   padding: 15rpx 30rpx;
   font-weight: bolder;
+  top: 88rpx;
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: 10;
 }
 
 .nav__item--active {

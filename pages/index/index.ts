@@ -9,37 +9,44 @@ Page({
     },
     post: {
       list: [],
-      listCopy: [],
       page: 1,
       num: 20
     },
     topics: []
   },
-  onLoad() {
-    const swiper = this.selectComponent('#swiper');
-    const { page, num, list } = this.data.post;
-    Promise.all([
-      request('home/forums', 'get', {}, true),
-      request('home/mobileHomeInfo', 'get', { page: 1, num: 20 }, true),
-      request('topic/getRecommendTopicList', 'get', {}, true)
-    ]).then(([ nav, info, topics ]) => {
+  loadList() {
+    const { list, page, num } = this.data.post;
+    return request('home/mobileHomeInfo', 'get', { page, num }, true).then(info => {
       list.push(...info.hots);
       info.hots.forEach(hot => {
         hot.imgsCover = hot.imgs && hot.imgs.length && hot.imgs.slice(0, 3);
       });
-      this.setData({ 
+      const payload = {
+        ['post.list']: list,
+        ['post.page']: page + 1,
+      }
+      if (page === 1) payload.sliders = info.circles;
+      this.setData(payload);
+    });
+  },
+  onLoad() {
+    wx.showNavigationBarLoading();
+    const swiper = this.selectComponent('#swiper');
+    Promise.all([
+      request('home/forums', 'get', {}, true),
+      request('topic/getRecommendTopicList', 'get', {}, true),
+      this.loadList()
+      // request('user/Follow/recommendActiveUserList', 'get', { page_size: 10 })
+    ]).then(([ nav, topics ]) => {
+      this.setData({
         ['nav.list']: nav.forumlists,
-        sliders: info.circles,
-        post: {
-          list,
-          listCopy: list.slice(2),
-          page: page + 1,
-          num
-        },
         topics: topics.list
       });
       swiper.start();
-    })
+    }, () => {}).then(() => wx.hideNavigationBarLoading());
+  },
+  onReachBottom() {
+    this.loadList();
   },
   changeNav({ currentTarget: { dataset: { nav } } }) {
     this.setData({ ['nav.current']: nav });
