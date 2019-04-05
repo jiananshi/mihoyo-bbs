@@ -1,6 +1,6 @@
 const API_URL = [
   'https://bbs.mihoyo.com/api/community/forum/',
-  'https://mihoyo.shiijanan.com/community/'
+  'https://mihoyo.shijianan.com/community/forum/'
 ];
 
 export default function(path: String, method: String, data: Object, isFresh = false) {
