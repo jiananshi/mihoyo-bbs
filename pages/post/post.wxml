@@ -1,0 +1,101 @@
+<view class="container">
+  <view class="post">
+    <view class="post__header">
+      <view class="post__headerleft">
+        <image
+          wx:if="{{ post.userinfo && post.userinfo.avatar }}"
+          class="post__avatar"
+          src="//bbs.mihoyo.com/avatar/avatar{{ post.userinfo.avatar }}.png" />
+        <view>
+          <view class="post__userinfo">
+            <text class="post__username">{{ post.userinfo.nickname }}</text>
+            <image 
+              wx:if="{{ post.userinfo && post.userinfo.levelExp }}"
+              mode="widthFix"
+              class="post__level"
+              src="https://bbs.mihoyo.com/level/level{{ post.userinfo.levelExp.level }}.png" />
+          </view>
+          <text class="post__userlabel">{{ post.userinfo.certification.label }}</text>
+        </view>
+      </view>
+      <view class="btn--follow">关注</view>
+    </view>
+    <view class="post__body">
+      <view style="margin-bottom: 15rpx;">
+        <text class="post__subject">{{ post.subject }}</text>
+      </view>
+      <text>文章发表：{{ post.created_at }} | 最后编辑：{{ post.last_modify_time }}</text>
+      <view>{{ post.content }}</view>
+      <view
+        class="post__tag" 
+        wx:for="{{ post.topics }}"
+        wx:for-item="tag"
+        wx:key="{{ index }}">
+        <text>{{ tag.name }}</text>
+      </view>
+    </view>
+    <view class="post__footer">
+      <view class="post__footeritem">
+        <text>{{ post.stat.view_num }}</text>
+      </view>
+      <view class="post__footeritem">
+        <text>{{ post.stat.reply_num }}</text>
+      </view>
+      <view class="post__footeritem">
+        <text>{{ post.stat.like_num }}</text>
+      </view>
+      <view class="post__footeritem">
+        <text>{{ post.stat.bookmark_num }}</text>
+      </view>
+    </view>
+  </view>
+  <view class="comments">
+    <view class="comments__header">
+      <view class="comments__mode">
+        <view>
+          <text>全部回复</text>
+        </view>
+        <view>
+          <text>只看楼主</text>
+        </view>
+      </view>
+      <view>
+        <text>正序</text>
+      </view>
+    </view>
+    <view 
+      wx:if="{{ comments.length }}"
+      wx:for="{{ comments }}"
+      wx:for-item="comment"
+      wx:key="{{ comment.uid }}"
+      class="comment">
+      <image
+        class="comment__avatar"
+        src="//bbs.mihoyo.com/avatar/avatar{{ comment.userinfo.avatar }}.png" />
+      <view class="comment__right">
+        <view>
+          <text class="comment__username">{{ comment.userinfo.nickname }}</text>
+          <image 
+            wx:if="{{ comment.userinfo && comment.userinfo.levelExp }}"
+            mode="widthFix"
+            class="post__level"
+            src="https://bbs.mihoyo.com/level/level{{ comment.userinfo.levelExp.level }}.png" />
+        </view>
+        <view class="comment__content">
+          <text>{{ comment.floor_id }}楼</text>
+          <text>更多</text>
+        </view>
+        <text>{{ comment.content }}</text>
+        <view class="comment__info">
+          <text>{{ comment.created_at }}</text>
+          <text>{{ comment.stat.like_num }}</text>
+        </view>
+      </view>
+    </view>
+    <!-- <comment
+      comment="{{ comment }}"
+      wx:for="{{ comments }}"
+      wx:for-item="comment"
+      wx:key="{{ comment.uid }}" /> -->
+  </view>
+</view>

@@ -1,3 +1,7 @@
+.container {
+  padding-top: 160rpx;
+}
+
 .nav {
   display: flex;
   align-items: center;

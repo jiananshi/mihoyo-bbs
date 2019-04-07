@@ -12,7 +12,13 @@
 		"beforeUpload": "npm run compile"
 	},
 	"setting": {
-		"newFeature": true
+		"urlCheck": true,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true,
+		"autoAudits": false,
+		"nodeModules": true
 	},
 	"appid": "wxea97d116b9efe7db",
 	"condition": {
@@ -38,7 +44,7 @@
 					"id": 0,
 					"name": "post",
 					"pathName": "pages/post/post",
-					"query": "id=39947",
+					"query": "id=39944",
 					"scene": null
 				}
 			]

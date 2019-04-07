@@ -1,0 +1,22 @@
+<view class="comment">
+  <image
+    class="comment__avatar"
+    src="//bbs.mihoyo.com/avatar/avatar{{ comment.userinfo.avatar }}.png" />
+  <view>
+    <view>
+      <text>{{ comment.userinfo.nickname }}</text>
+      <view>
+        <text>{{ comment.userinfo.levelExp.level }}</text>
+      </view>
+    </view>
+    <view>
+      <text>{{ comment.floor_id }}楼</text>
+      <text>更多</text>
+    </view>
+    <text>{{ comment.content }}</text>
+    <view>
+      <text>{{ comment.created_at }}</text>
+      <text>{{ comment.stat.like_num }}</text>
+    </view>
+  </view>
+</view>

@@ -1,5 +1,4 @@
 page {
   font-size: 32rpx;
   color: #404040;
-  padding-top: 160rpx;
 }
