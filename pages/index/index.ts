@@ -12,7 +12,8 @@ Page({
       page: 1,
       num: 20
     },
-    topics: []
+    topics: [],
+    activeUsers: []
   },
   loadList() {
     const { list, page, num } = this.data.post;
@@ -35,11 +36,12 @@ Page({
     Promise.all([
       request('home/forums', 'get', {}, true),
       request('topic/getRecommendTopicList', 'get', {}, true),
+      request('user/Follow/recommendActiveUserList', 'get', { page_size: 10 })
       this.loadList()
-      // request('user/Follow/recommendActiveUserList', 'get', { page_size: 10 })
-    ]).then(([ nav, topics ]) => {
+    ]).then(([ nav, topics, activeUsers ]) => {
       this.setData({
         ['nav.list']: nav.forumlists,
+        activeUsers: activeUsers.list,
         topics: topics.list
       });
       swiper.start();

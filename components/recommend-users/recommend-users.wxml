@@ -1,0 +1,26 @@
+<view class="container">
+  <view class="recommend__header">
+    <text>为你推荐</text>
+    <text>更多</text>
+  </view>
+  <scroll-view scroll-y>
+    <view class="recommend__users">
+      <view
+        class="recommend__usercell"
+        wx:for="{{ users }}"
+        wx:for-item="user"
+        wx:key="{{ index }}">
+        <image 
+          class="recommend__useravatar"
+          src="https://bbs.mihoyo.com/avatar/avatar{{ user.avatar }}.png" />
+        <view>
+          <text class="recommend__username">{{ user.nickname }}</text>
+        </view>
+        <view style="margin-bottom: 15rpx;">
+          <text class="recommend__userdesc">{{ user.certification.label }}</text>
+        </view>
+        <view class="btn--follow">关注</view>
+      </view>
+    </view>
+  </scroll-view>
+</view>

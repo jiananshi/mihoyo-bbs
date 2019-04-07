@@ -2,6 +2,7 @@
   "usingComponents": {
     "mhy-header": "/components/header/header",
     "swiper": "/components/swiper/swiper",
-    "post": "/components/post/post"
+    "post": "/components/post/post",
+    "recommend-users": "/components/recommend-users/recommend-users"
   }
 }

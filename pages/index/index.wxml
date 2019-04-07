@@ -61,6 +61,7 @@
       </view>
     </view>
     <post post="{{ post.list[1] }}" />
+    <recommend-users users="{{ activeUsers }}" />
     <post
       wx:if="{{ index > 1 }}"
       wx:for="{{ post.list }}"

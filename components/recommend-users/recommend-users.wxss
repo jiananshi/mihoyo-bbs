@@ -1,0 +1,54 @@
+.container {
+  padding: 20rpx 15rpx;
+  background-color: #fff;
+  margin-bottom: 32rpx;
+}
+
+.recommend__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 30rpx;
+}
+
+.recommend__users {
+  display: flex;
+}
+
+.recommend__usercell {
+  display: flex;
+  flex-shrink: 0;
+  flex-direction: column;
+  align-items: center;
+  border: 2rpx solid #ebeff0;
+  border-radius: 10rpx;
+  width: 280rpx;
+  margin-right: 10rpx;
+  padding: 10rpx 0;
+}
+
+.recommend__useravatar {
+  width: 96rpx;
+  height: 96rpx;
+  border: 2rpx solid #ebeff0;
+  border-radius: 50%;
+}
+
+.recommend__username {
+  font-size: 28rpx;
+  font-weight: 600;
+}
+
+.recommend__userdesc {
+  color: #999;
+  font-size: 26rpx;
+}
+
+.btn--follow {
+  padding: 5rpx 15rpx;
+  background-color: #00c3ff;
+  color: #fff;
+  font-size: 28rpx;
+  border-radius: 30rpx;
+}
+
