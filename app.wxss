@@ -2,3 +2,12 @@ page {
   font-size: 32rpx;
   color: #404040;
 }
+
+.postcontent--image {
+  max-width: 100%;
+}
+
+.emotion--img {
+  width: 140rpx;
+  height: 140rpx;
+}

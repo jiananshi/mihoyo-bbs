@@ -84,7 +84,8 @@ export function parseToNodes(raw: String, handler: ParserHandler): Array<Object>
         nodes.push({
           name: 'img',
           attrs: {
-            src: attrs.src
+            src: attrs.src,
+            'class': 'postcontent--image'
           }
         });
       } else {
@@ -106,7 +107,8 @@ export function parseToNodes(raw: String, handler: ParserHandler): Array<Object>
         nodes[nodes.length - 1].children.push({
           name: 'img',
           attrs: {
-            src: `//img-static.mihoyo.com/emoticon/${RegExp.$1}.png`
+            src: `//img-static.mihoyo.com/emoticon/${RegExp.$1}.png`,
+            class: 'emotion--img'
           }
         });
         text = RegExp.rightContext;
