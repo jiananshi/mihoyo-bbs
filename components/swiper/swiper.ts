@@ -27,6 +27,11 @@ Component({
     sliderOffset: 0
   },
   methods: {
+    viewPost({ currentTarget: { dataset: { path } } }) {
+      wx.navigateTo({
+        url: `../post/post?id=${path.match(/(\d+)$/)[0]}`
+      });
+    },
     start() {
       wx.getSystemInfo({
         success: ({ screenWidth }) => {

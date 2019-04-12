@@ -45,7 +45,7 @@ Page({
         topics: topics.list
       });
       swiper.start();
-    }, () => {}).then(() => wx.hideNavigationBarLoading());
+    }, console.error).then(() => wx.hideNavigationBarLoading());
   },
   onReachBottom() {
     this.loadList();

@@ -6,7 +6,7 @@
 	"compileType": "miniprogram",
 	"libVersion": "2.4.0",
 	"projectname": "mihoyo-bbs",
-	"cloudfunctionRoot": "./serverless",
+	"cloudfunctionRoot": "serverless/",
 	"scripts": {
 		"beforeCompile": "npm run compile",
 		"beforePreview": "npm run compile",
@@ -39,19 +39,20 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 1,
+			"current": 0,
 			"list": [
 				{
 					"id": 0,
 					"name": "post",
 					"pathName": "pages/post/post",
-					"query": "id=39944",
+					"query": "id=41459",
 					"scene": null
 				},
 				{
 					"id": -1,
 					"name": "deck",
 					"pathName": "pages/deck/deck",
+					"query": "",
 					"scene": null
 				}
 			]

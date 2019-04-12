@@ -30,7 +30,7 @@ function parsePropsAndAttrs(raw: String): ParsePropsAndAttrsResult {
     matched.forEach(maybePair => {
       if (/=/.test(maybePair)) {
         const [k, v] = maybePair.split('=');
-        result.attrs[k] = v;
+        result.attrs[k] = v.replace(/"/g, '');
       } else {
         result.props.push(maybePair);
       }
@@ -79,12 +79,21 @@ export function parse(raw: String, handler: ParserHandler): void {
 export function parseToNodes(raw: String, handler: ParserHandler): Array<Object> {
   const nodes = [];
   parse(raw, {
-    start(tagName: String, attrs: Object) {
-      nodes.push({
-        name: 'div',
-        attrs,
-        children: []
-      });
+    start({ tagName, attrs }) {
+      if (tagName.toLowerCase() === 'img') {
+        nodes.push({
+          name: 'img',
+          attrs: {
+            src: attrs.src
+          }
+        });
+      } else {
+        nodes.push({
+          name: 'div',
+          attrs,
+          children: []
+        });
+      }
     },
     chars(text: String) {
       while (text.match(/_\((.{2})\)/)) {
