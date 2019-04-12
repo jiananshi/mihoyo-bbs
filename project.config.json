@@ -38,13 +38,19 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 0,
+			"current": 1,
 			"list": [
 				{
 					"id": 0,
 					"name": "post",
 					"pathName": "pages/post/post",
 					"query": "id=39944",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "deck",
+					"pathName": "pages/deck/deck",
 					"scene": null
 				}
 			]

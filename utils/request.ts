@@ -1,5 +1,5 @@
 const API_URL = [
-  'https://bbs.mihoyo.com/api/community/forum/',
+  'https://api-static.mihoyo.com/api/community/forum/',
   'https://mihoyo.shijianan.com/community/'
 ];
 

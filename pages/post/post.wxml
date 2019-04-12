@@ -5,7 +5,7 @@
         <image
           wx:if="{{ post.userinfo && post.userinfo.avatar }}"
           class="post__avatar"
-          src="//bbs.mihoyo.com/avatar/avatar{{ post.userinfo.avatar }}.png" />
+          src="//img-static.mihoyo.com/avatar/avatar{{ post.userinfo.avatar }}.png" />
         <view>
           <view class="post__userinfo">
             <text class="post__username">{{ post.userinfo.nickname }}</text>
@@ -13,7 +13,7 @@
               wx:if="{{ post.userinfo && post.userinfo.levelExp }}"
               mode="widthFix"
               class="post__level"
-              src="https://bbs.mihoyo.com/level/level{{ post.userinfo.levelExp.level }}.png" />
+              src="//img-static.mihoyo.com/level/level{{ post.userinfo.levelExp.level }}.png" />
           </view>
           <text class="post__userlabel">{{ post.userinfo.certification.label }}</text>
         </view>
@@ -25,7 +25,7 @@
         <text class="post__subject">{{ post.subject }}</text>
       </view>
       <text>文章发表：{{ post.created_at }} | 最后编辑：{{ post.last_modify_time }}</text>
-      <view>{{ post.content }}</view>
+      <rich-text nodes="{{ post.content }}" />
       <view
         class="post__tag" 
         wx:for="{{ post.topics }}"
@@ -71,7 +71,7 @@
       class="comment">
       <image
         class="comment__avatar"
-        src="//bbs.mihoyo.com/avatar/avatar{{ comment.userinfo.avatar }}.png" />
+        src="//img-static.mihoyo.com/avatar/avatar{{ comment.userinfo.avatar }}.png" />
       <view class="comment__right">
         <view>
           <text class="comment__username">{{ comment.userinfo.nickname }}</text>
@@ -79,13 +79,13 @@
             wx:if="{{ comment.userinfo && comment.userinfo.levelExp }}"
             mode="widthFix"
             class="post__level"
-            src="https://bbs.mihoyo.com/level/level{{ comment.userinfo.levelExp.level }}.png" />
+            src="//img-static.mihoyo.com/level/level{{ comment.userinfo.levelExp.level }}.png" />
         </view>
         <view class="comment__content">
           <text>{{ comment.floor_id }}楼</text>
           <text>更多</text>
         </view>
-        <text>{{ comment.content }}</text>
+        <rich-text nodes="{{ comment.content }}" />
         <view class="comment__info">
           <text>{{ comment.created_at }}</text>
           <text>{{ comment.stat.like_num }}</text>

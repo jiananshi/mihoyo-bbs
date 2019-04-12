@@ -1,0 +1,31 @@
+<view>
+  <scroll-view scroll-y>
+    <view class="topics">
+      <view 
+        class="topic"
+        wx:for="{{ topics }}"
+        wx:for-item="topic"
+        wx:key="{{ index }}">
+        <text>{{ topic.name }}</text>
+      </view>
+    </view>
+  </scroll-view>
+  <view>
+    <view>
+      <view>
+        <view>
+          <text>最新</text>
+        </view>
+        <view>
+          <text>热门</text>
+        </view>
+        <view>
+          <text>精华</text>
+        </view>
+      </view>
+      <view>
+        <text>发帖时间顺序</text>
+      </view>
+    </view>
+  </view>
+</view>
