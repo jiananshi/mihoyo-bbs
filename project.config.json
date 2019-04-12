@@ -6,6 +6,7 @@
 	"compileType": "miniprogram",
 	"libVersion": "2.4.0",
 	"projectname": "mihoyo-bbs",
+	"cloudfunctionRoot": "./serverless",
 	"scripts": {
 		"beforeCompile": "npm run compile",
 		"beforePreview": "npm run compile",

@@ -5,6 +5,8 @@ export interface IMyApp {
   }
 }
 
+wx.cloud.init();
+
 App<IMyApp>({
   onLaunch() {
     // 展示本地存储能力

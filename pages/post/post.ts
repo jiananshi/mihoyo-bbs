@@ -16,8 +16,7 @@ Page({
     .then(([ post, comments ]) => {
       post.content = parseToNodes(post.content);
       comments.list.forEach(comment => comment.content = parseToNodes(comment.content));
-
       this.setData({ post, comments: comments.list });
-    })
+    });
   }
 });
