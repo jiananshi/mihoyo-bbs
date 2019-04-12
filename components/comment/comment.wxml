@@ -1,20 +1,22 @@
 <view class="comment">
   <image
     class="comment__avatar"
-    src="//bbs.mihoyo.com/avatar/avatar{{ comment.userinfo.avatar }}.png" />
-  <view>
+    src="//img-static.mihoyo.com/avatar/avatar{{ comment.userinfo.avatar }}.png" />
+  <view class="comment__right">
     <view>
-      <text>{{ comment.userinfo.nickname }}</text>
-      <view>
-        <text>{{ comment.userinfo.levelExp.level }}</text>
-      </view>
+      <text class="comment__username">{{ comment.userinfo.nickname }}</text>
+      <image 
+        wx:if="{{ comment.userinfo && comment.userinfo.levelExp }}"
+        mode="widthFix"
+        class="comment__level"
+        src="//img-static.mihoyo.com/level/level{{ comment.userinfo.levelExp.level }}.png" />
     </view>
-    <view>
+    <view class="comment__content">
       <text>{{ comment.floor_id }}楼</text>
       <text>更多</text>
     </view>
-    <text>{{ comment.content }}</text>
-    <view>
+    <rich-text nodes="{{ comment.content }}" />
+    <view class="comment__info">
       <text>{{ comment.created_at }}</text>
       <text>{{ comment.stat.like_num }}</text>
     </view>

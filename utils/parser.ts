@@ -97,7 +97,7 @@ export function parseToNodes(raw: String, handler: ParserHandler): Array<Object>
       }
     },
     chars(text: String) {
-      while (text.match(/_\((.{2})\)/)) {
+      while (text.match(/_\(([^_]+)\)/)) {
         if (RegExp.leftContext.length) {
           nodes[nodes.length - 1].children.push({
             type: 'text',

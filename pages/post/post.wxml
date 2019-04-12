@@ -63,39 +63,11 @@
         <text>正序</text>
       </view>
     </view>
-    <view 
+    <comment
       wx:if="{{ comments.length }}"
       wx:for="{{ comments }}"
       wx:for-item="comment"
       wx:key="{{ comment.uid }}"
-      class="comment">
-      <image
-        class="comment__avatar"
-        src="//img-static.mihoyo.com/avatar/avatar{{ comment.userinfo.avatar }}.png" />
-      <view class="comment__right">
-        <view>
-          <text class="comment__username">{{ comment.userinfo.nickname }}</text>
-          <image 
-            wx:if="{{ comment.userinfo && comment.userinfo.levelExp }}"
-            mode="widthFix"
-            class="post__level"
-            src="//img-static.mihoyo.com/level/level{{ comment.userinfo.levelExp.level }}.png" />
-        </view>
-        <view class="comment__content">
-          <text>{{ comment.floor_id }}楼</text>
-          <text>更多</text>
-        </view>
-        <rich-text nodes="{{ comment.content }}" />
-        <view class="comment__info">
-          <text>{{ comment.created_at }}</text>
-          <text>{{ comment.stat.like_num }}</text>
-        </view>
-      </view>
-    </view>
-    <!-- <comment
-      comment="{{ comment }}"
-      wx:for="{{ comments }}"
-      wx:for-item="comment"
-      wx:key="{{ comment.uid }}" /> -->
+      comment="{{ comment }}" />
   </view>
 </view>

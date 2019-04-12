@@ -1,0 +1,35 @@
+.comments__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.comment {
+  display: flex;
+}
+
+.comment__avatar {
+  width: 64rpx;
+  height: 64rpx;
+  border-radius: 50%;
+  border: 2rpx solid #ebeff0;
+  margin-right: 15rpx;
+}
+
+.comment__right {
+  flex: 1;
+}
+
+.comment__level {
+  width: 60rpx;
+}
+
+.comment__username {
+  color: #404040;
+}
+
+.comment__content, .comment__info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
