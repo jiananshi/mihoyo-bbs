@@ -7,12 +7,13 @@
     <view class="recommend__users">
       <view
         class="recommend__usercell"
+        wx:if="{{ users.length }}"
         wx:for="{{ users }}"
         wx:for-item="user"
         wx:key="{{ index }}">
         <image 
           class="recommend__useravatar"
-          src="https://bbs.mihoyo.com/avatar/avatar{{ user.avatar }}.png" />
+          src="//img-static.mihoyo.com/avatar/avatar{{ user.avatar }}.png" />
         <view>
           <text class="recommend__username">{{ user.nickname }}</text>
         </view>

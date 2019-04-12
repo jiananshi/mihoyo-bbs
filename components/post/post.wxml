@@ -3,8 +3,9 @@
   class="post">
   <view class="post__header">
     <image
+      wx:if="post && post.user"
       class="post__avatar"
-      src="//bbs.mihoyo.com/avatar/avatar{{ post.user.avatar }}.png" />
+      src="//img-static.mihoyo.com/avatar/avatar{{ post.user.avatar }}.png" />
     <view>
       <text class="post__username">{{ post.user.nickname }}</text>
       <view class="post__info">
@@ -25,6 +26,9 @@
       wx:if="{{ post.imgs && post.imgs.length }}"
       class="post__covers">
       <image
+        catch:tap="viewImage"
+        data-imgs="{{ post.imgs }}"
+        data-current="{{ index }}"
         class="post__cover"
         mode="aspectFill"
         wx:for="{{ post.imgsCover }}"
