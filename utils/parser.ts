@@ -109,7 +109,7 @@ export function parseToNodes(raw: String, handler: ParserHandler): Array<Object>
       }
     },
     chars(text: String) {
-      while (text.match(/_\(([^_]+)\)/)) {
+      while (text.match(/_\(([^)_]+)\)/)) {
         if (RegExp.leftContext.length) {
           nodes[nodes.length - 1].children.push({
             type: 'text',
@@ -120,7 +120,8 @@ export function parseToNodes(raw: String, handler: ParserHandler): Array<Object>
           name: 'img',
           attrs: {
             src: `//img-static.mihoyo.com/emoticon/${RegExp.$1}.png`,
-            class: 'emotion--img'
+            height: '70rpx',
+            width: '70rpx'
           }
         });
         text = RegExp.rightContext;
