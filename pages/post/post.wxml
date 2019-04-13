@@ -26,12 +26,14 @@
       </view>
       <text>文章发表：{{ post.created_at }} | 最后编辑：{{ post.last_modify_time }}</text>
       <rich-text nodes="{{ post.content }}" />
-      <view
-        class="post__tag" 
-        wx:for="{{ post.topics }}"
-        wx:for-item="tag"
-        wx:key="{{ index }}">
-        <text>{{ tag.name }}</text>
+      <view class="post__tags">
+        <view
+          class="post__tag" 
+          wx:for="{{ post.topics }}"
+          wx:for-item="tag"
+          wx:key="{{ index }}">
+          <text>#{{ tag.name }}</text>
+        </view>
       </view>
     </view>
     <view class="post__footer">

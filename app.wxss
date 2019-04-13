@@ -1,6 +1,7 @@
 page {
   font-size: 32rpx;
   color: #404040;
+  font-family: Microsoft YaHei,\\5FAE\8F6F\96C5\9ED1,miui,Helvetica,Arial,sans-serif;
 }
 
 .postcontent--image {

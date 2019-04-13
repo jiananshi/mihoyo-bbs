@@ -80,20 +80,32 @@ export function parseToNodes(raw: String, handler: ParserHandler): Array<Object>
   const nodes = [];
   parse(raw, {
     start({ tagName, attrs }) {
-      if (tagName.toLowerCase() === 'img') {
-        nodes.push({
-          name: 'img',
-          attrs: {
-            src: attrs.src,
-            'class': 'postcontent--image'
-          }
-        });
-      } else {
-        nodes.push({
-          name: 'div',
-          attrs,
-          children: []
-        });
+      switch (tagName.toLowerCase()) {
+        case 'img':
+          nodes.push({
+            name: 'img',
+            attrs: {
+              src: attrs.src,
+              'class': 'postcontent--image'
+            }
+          });
+          break;
+        case 'br':
+          nodes.push({ name: 'br' });
+          break;
+        case 'strong':
+          nodes.push({
+            name: 'strong',
+            attrs,
+            children: []
+          });
+          break;
+        default:
+          nodes.push({
+            name: 'div',
+            attrs: Object.assign({ 'class': 'postcontent' }, attrs),
+            children: []
+          });
       }
     },
     chars(text: String) {

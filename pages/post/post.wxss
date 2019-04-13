@@ -5,6 +5,8 @@
 .post {
   padding: 15rpx 30rpx;
   background-color: #fff;
+  color: #404040;
+  line-height: 1.5;
 }
 
 .post__header {
@@ -58,8 +60,23 @@
   font-size: 1.4em;
 }
 
-.post__content img {
-  width: 100%;
+.post__tags {
+  display: flex;
+  align-items: center;
+  padding-bottom: 15rpx;
+  margin-bottom: 15rpx;
+  margin-top: 30rpx;
+}
+
+.post__tag {
+  color: #00b2ff;
+  background-color: #edf6fc;
+  padding: 5rpx 10rpx;
+  font-size: 24rpx;
+  margin-right: 5px;
+  border-radius: 10px;
+  display: inline-block;
+  font-weight: 700;
 }
 
 .post__footer {
