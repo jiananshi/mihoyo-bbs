@@ -6,6 +6,8 @@
 
 .comment {
   display: flex;
+  border-bottom: 2rpx solid #f0f4f5;
+  padding: 30rpx 0;
 }
 
 .comment__avatar {
@@ -20,16 +22,36 @@
   flex: 1;
 }
 
+.comment__rightheader {
+  display: flex;
+  justify-content: space-between;
+}
+
 .comment__level {
   width: 60rpx;
+  vertical-align: middle;
 }
 
 .comment__username {
   color: #404040;
+  vertical-align: middle;
+  margin-right: 15rpx;
 }
 
-.comment__content, .comment__info {
+.comment__content, 
+.comment__info {
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+.comment__content {
+  margin-top: 15rpx;
+  margin-bottom: 15rpx;
+}
+
+.comment__floor,
+.comment__date {
+  color: #ccc;
+  font-size: 30rpx;
 }

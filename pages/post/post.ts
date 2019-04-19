@@ -1,22 +1,49 @@
 import request from '../../utils/request';
 import { parseToNodes } from '../../utils/parser';
 
+interface routerParams {
+  id: string;
+}
+
 Page({
-  data() {
-    return {
-      post: {},
-      comments: []
-    };
+  data: {
+    post: {},
+    comments: [],
+    commentParams: {
+      order: 1,
+      num: 20,
+      floor_id: 0,
+      landlord: 0
+    }
   },
-  onLoad({ id }) {
+  onLoad(params: routerParams): void {
+    wx.showNavigationBarLoading();
+    const { id } = params;
+    this.id = id;
     Promise.all([
       request('forum/Post/mobilePostInfo', 'get', { post_id: id, read: 1 }),
-      request('forum/Reply/mobileReplyList', 'get', { post_id: id, order: 1, num: 20, landlord: 0 })
+      this.loadComments()
     ])
-    .then(([ post, comments ]) => {
+    .then(([ post ]) => {
       post.content = parseToNodes(post.content);
+      this.setData({ post });
+    }, console.error)
+    .then(() => wx.hideNavigationBarLoading());
+  },
+  loadComments() {
+    const { num, floor_id } = this.data.commentParams;
+    return request('forum/Reply/mobileReplyList', 'get', Object.assign({ 
+      post_id: this.id
+    }, this.data.commentParams)).then(comments => {
       comments.list.forEach(comment => comment.content = parseToNodes(comment.content));
-      this.setData({ post, comments: comments.list });
+      this.setData({ 
+        ['commentParams.floor_id']: floor_id + num,
+        comments: [...this.data.comments, ...comments.list]
+      });
+      return comments.list;
     });
+  },
+  onReachBottom() {
+    this.loadComments();
   }
 });

@@ -1,23 +1,26 @@
+<wxs src="../../utils/scripts.wxs" module="utils" />
 <view class="comment">
   <image
     class="comment__avatar"
     src="//img-static.mihoyo.com/avatar/avatar{{ comment.userinfo.avatar }}.png" />
   <view class="comment__right">
-    <view>
-      <text class="comment__username">{{ comment.userinfo.nickname }}</text>
-      <image 
-        wx:if="{{ comment.userinfo && comment.userinfo.levelExp }}"
-        mode="widthFix"
-        class="comment__level"
-        src="//img-static.mihoyo.com/level/level{{ comment.userinfo.levelExp.level }}.png" />
+    <view class="comment__rightheader">
+      <view>
+        <text class="comment__username">{{ comment.userinfo.nickname }}</text>
+        <image 
+          wx:if="{{ comment.userinfo && comment.userinfo.levelExp }}"
+          mode="widthFix"
+          class="comment__level"
+          src="//img-static.mihoyo.com/level/level{{ comment.userinfo.levelExp.level }}.png" />
+      </view>
+      <text>更多</text>
     </view>
     <view class="comment__content">
-      <text>{{ comment.floor_id }}楼</text>
-      <text>更多</text>
+      <text class="comment__floor">{{ comment.floor_id }}楼</text>
     </view>
     <rich-text nodes="{{ comment.content }}" />
     <view class="comment__info">
-      <text>{{ comment.created_at }}</text>
+      <text class="comment__date">{{ utils.dateFormat(comment.created_at) }}</text>
       <text>{{ comment.stat.like_num }}</text>
     </view>
   </view>

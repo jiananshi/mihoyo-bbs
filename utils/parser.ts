@@ -23,6 +23,13 @@ interface ParsePropsAndAttrsResult {
   attrs: Object;
 }
 
+interface Node {
+  name?: string;
+  type?: string;
+  attrs?: Object;
+  children?: Array<Node>;
+}
+
 function parsePropsAndAttrs(raw: String): ParsePropsAndAttrsResult {
   const result = { props: [], attrs: {} };
   const matched = raw.match(attrAndProps);
@@ -76,8 +83,8 @@ export function parse(raw: String, handler: ParserHandler): void {
   } 
 };
 
-export function parseToNodes(raw: String, handler: ParserHandler): Array<Object> {
-  const nodes = [];
+export function parseToNodes(raw: String): Array<Object> {
+  const nodes: Array<Node> = [];
   parse(raw, {
     start({ tagName, attrs }) {
       switch (tagName.toLowerCase()) {

@@ -80,6 +80,10 @@
   font-weight: 700;
 }
 
+.post__body {
+  border-bottom: 2rpx solid #ebeff0;
+}
+
 .post__footer {
   display: flex;
   align-items: center;
@@ -88,6 +92,11 @@
 .post__footeritem {
   flex: 1;
   flex-shrink: 0;
+  text-align: center;
+  padding: 15rpx 0;
+  margin-top: 15rpx;
+  color: #ccc;
+  font-size: 30rpx;
 }
 
 .comments {
@@ -99,9 +108,14 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding: 15rpx 0;
 }
 
 .comments__mode {
   display: flex;
   align-items: center;
+}
+
+.comments__mode--all {
+  margin-right: 30rpx;
 }

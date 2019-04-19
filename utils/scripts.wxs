@@ -1,0 +1,6 @@
+function dateFormat(raw) {
+  var date = getDate(raw);
+  return (date.getMonth() + 1) + '-' + date.getDate();
+};
+
+module.exports.dateFormat = dateFormat;

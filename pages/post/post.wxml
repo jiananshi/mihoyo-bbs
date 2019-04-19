@@ -54,7 +54,7 @@
   <view class="comments">
     <view class="comments__header">
       <view class="comments__mode">
-        <view>
+        <view class="comments__mode--all">
           <text>全部回复</text>
         </view>
         <view>
