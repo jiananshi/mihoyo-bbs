@@ -55,3 +55,7 @@
   color: #ccc;
   font-size: 30rpx;
 }
+
+.comment__likenum {
+  color: #999;
+}

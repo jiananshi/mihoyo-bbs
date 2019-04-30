@@ -21,7 +21,7 @@
     <rich-text nodes="{{ comment.content }}" />
     <view class="comment__info">
       <text class="comment__date">{{ utils.dateFormat(comment.created_at) }}</text>
-      <text>{{ comment.stat.like_num }}</text>
+      <text class="comment__likenum">{{ comment.stat.like_num }}</text>
     </view>
   </view>
 </view>

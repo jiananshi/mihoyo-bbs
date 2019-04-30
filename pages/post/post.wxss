@@ -48,6 +48,26 @@
   font-size: 26rpx;
 }
 
+.post__date::before,
+.post__date::after {
+  content: '';
+  display: inline-block;
+  width: 20%;
+  height: 1px;
+  background-color: #ccc;
+  vertical-align: middle;
+  margin: 0 10rpx;
+}
+
+.post__date {
+  color: #999;
+  font-size: 28rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin: 30rpx 0;
+}
+
 .btn--follow {
   padding: 5rpx 15rpx;
   background-color: #00c3ff;

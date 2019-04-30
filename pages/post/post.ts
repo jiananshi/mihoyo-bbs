@@ -5,6 +5,10 @@ interface routerParams {
   id: string;
 }
 
+function formatDate(raw: string): string {
+  return (new Date(raw)).toLocaleDateString().replace(/\//g, '-');
+}
+
 Page({
   data: {
     post: {},
@@ -17,7 +21,7 @@ Page({
     }
   },
   onLoad(params: routerParams): void {
-    wx.showNavigationBarLoading();
+    wx.showNavigationBarLoading({});
     const { id } = params;
     this.id = id;
     Promise.all([
@@ -26,9 +30,10 @@ Page({
     ])
     .then(([ post ]) => {
       post.content = parseToNodes(post.content);
+      post.created_at = formatDate(post.created_at);
       this.setData({ post });
     }, console.error)
-    .then(() => wx.hideNavigationBarLoading());
+    .then(() => wx.hideNavigationBarLoading({}));
   },
   loadComments() {
     const { num, floor_id } = this.data.commentParams;

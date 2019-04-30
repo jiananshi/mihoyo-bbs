@@ -123,7 +123,8 @@ export function parseToNodes(raw: String): Array<Object> {
             text: RegExp.leftContext
           });
         }
-        nodes[nodes.length - 1].children.push({
+        // 表情包另起一行
+        nodes.push({
           name: 'img',
           attrs: {
             src: `//img-static.mihoyo.com/emoticon/${RegExp.$1}.png`,

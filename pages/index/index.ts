@@ -31,12 +31,12 @@ Page({
     });
   },
   onLoad() {
-    wx.showNavigationBarLoading();
+    wx.showNavigationBarLoading({});
     const swiper = this.selectComponent('#swiper');
     Promise.all([
       request('home/forums', 'get', {}, true),
       request('topic/getRecommendTopicList', 'get', {}, true),
-      request('user/Follow/recommendActiveUserList', 'get', { page_size: 10 })
+      request('user/Follow/recommendActiveUserList', 'get', { page_size: 10 }),
       this.loadList()
     ]).then(([ nav, topics, activeUsers ]) => {
       this.setData({
@@ -45,7 +45,7 @@ Page({
         topics: topics.list
       });
       swiper.start();
-    }, console.error).then(() => wx.hideNavigationBarLoading());
+    }, console.error).then(() => wx.hideNavigationBarLoading({}));
   },
   onReachBottom() {
     this.loadList();
