@@ -22,6 +22,8 @@
 		"nodeModules": true
 	},
 	"appid": "wxea97d116b9efe7db",
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
 	"condition": {
 		"search": {
 			"current": -1,

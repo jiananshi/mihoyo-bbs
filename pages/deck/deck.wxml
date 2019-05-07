@@ -2,6 +2,7 @@
   <scroll-view scroll-y>
     <view class="topics">
       <view 
+        style="background-image: url({{ topic.cover }})"
         class="topic"
         wx:for="{{ topics }}"
         wx:for-item="topic"

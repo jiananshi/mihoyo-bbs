@@ -1,0 +1,5 @@
+.topic {
+  width: 200rpx;
+  height: 112rpx;
+  background-size: cover;
+}

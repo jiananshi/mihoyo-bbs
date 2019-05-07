@@ -1,11 +1,12 @@
 {
-  "pages":[
+  "pages": [
     "pages/index/index",
     "pages/post/post",
     "pages/deck/deck"
   ],
-  "window":{
+  "window": {
     "navigationBarBackgroundColor": "#00b6ff",
-    "navigationBarTextStyle":"white"
-  }
+    "navigationBarTextStyle": "white"
+  },
+  "sitemapLocation": "sitemap.json"
 }
