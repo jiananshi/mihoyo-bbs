@@ -18,8 +18,9 @@
 		"postcss": true,
 		"minified": true,
 		"newFeature": true,
+		"nodeModules": true,
 		"autoAudits": false,
-		"nodeModules": true
+		"checkInvalidKey": true
 	},
 	"appid": "wxea97d116b9efe7db",
 	"simulatorType": "wechat",

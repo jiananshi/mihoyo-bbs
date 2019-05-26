@@ -19,12 +19,12 @@ Page({
     const { list, page, num } = this.data.post;
     return request('home/mobileHomeInfo', 'get', { page, num }, true).then(info => {
       list.push(...info.hots);
-      info.hots.forEach(hot => {
+      info.hots.forEach((hot: any) => {
         hot.imgsCover = hot.imgs && hot.imgs.length && hot.imgs.slice(0, 3);
       });
       const payload = {
         ['post.list']: list,
-        ['post.page']: page + 1,
+        ['post.page']: page + 1
       }
       if (page === 1) payload.sliders = info.circles;
       this.setData(payload);

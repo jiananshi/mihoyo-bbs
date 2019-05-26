@@ -7,7 +7,7 @@
       data-path="{{ images[images.length - 1].path }}"
       class="swiper__image swiper__image--duplicate" 
       mode="widthFix"
-      src="{{ images[images.length - 1][srcProp] }}" />
+      src="{{ images[images.length - 1][srcProp] }}?x-oss-process=image/resize,s_1000/quality,q_80/auto-orient,0/interlace,1/format,jpg" />
     <image
       class="swiper__image {{ index === current ? 'swiper__image--active' : '' }}"
       bind:tap="viewPost"
@@ -16,13 +16,13 @@
       wx:for="{{ images }}"
       wx:for-item="image"
       wx:key="{{ key === null ? index : image.keyProp }}"
-      src="{{ image[srcProp] }}" />
+      src="{{ image[srcProp] }}?x-oss-process=image/resize,s_1000/quality,q_80/auto-orient,0/interlace,1/format,jpg" />
     <image 
       class="swiper__image swiper__image--duplicate {{ current === images.length ? 'swiper__image--active' : '' }}"
       bind:tap="viewPost"
       data-path="{{ images[0].path }}"
       mode="widthFix"
-      src="{{ images[0][srcProp] }}" />
+      src="{{ images[0][srcProp] }}?x-oss-process=image/resize,s_1000/quality,q_80/auto-orient,0/interlace,1/format,jpg" />
   </view>
   <view class="swiper__pagination">
     <view 
