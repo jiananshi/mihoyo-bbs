@@ -27,12 +27,14 @@ Page({
         ['post.page']: page + 1
       }
       if (page === 1) payload.sliders = info.circles;
-      this.setData(payload);
+      this.setData(payload, () => {
+        this.swiper.init();
+      });
     });
   },
   onLoad() {
     wx.showNavigationBarLoading({});
-    const swiper = this.selectComponent('#swiper');
+    this.swiper = this.selectComponent('#swiper');
     Promise.all([
       request('home/forums', 'get', {}, true),
       request('topic/getRecommendTopicList', 'get', {}, true),
@@ -44,7 +46,6 @@ Page({
         activeUsers: activeUsers.list,
         topics: topics.list
       });
-      swiper.start();
     }, console.error).then(() => wx.hideNavigationBarLoading({}));
   },
   onReachBottom() {

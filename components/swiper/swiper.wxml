@@ -1,14 +1,22 @@
-<view class="swiper custom-class">
+<view  
+  wx:if="isHidden"
+  class="swiper custom-class">
   <view 
     style="transform: translateX({{ sliderOffset + 'px' }})"
     class="swiper__window {{ hasReachBoundary ? '' : 'swiper__window--animated' }}">
     <image 
+      bind:touchstart="onTouch"
+      bind:touchmove="onTouchMove"
+      bind:touchend="onTouchEnd"
       bind:tap="viewPost"
       data-path="{{ images[images.length - 1].path }}"
-      class="swiper__image swiper__image--duplicate" 
+      class="swiper__image swiper__image--duplicate {{ current === -1 ? 'swiper__image--active' : '' }}" 
       mode="widthFix"
       src="{{ images[images.length - 1][srcProp] }}?x-oss-process=image/resize,s_1000/quality,q_80/auto-orient,0/interlace,1/format,jpg" />
     <image
+      bind:touchstart="onTouch"
+      bind:touchmove="onTouchMove"
+      bind:touchend="onTouchEnd"
       class="swiper__image {{ index === current ? 'swiper__image--active' : '' }}"
       bind:tap="viewPost"
       data-path="{{ image.path }}"
@@ -18,6 +26,9 @@
       wx:key="{{ key === null ? index : image.keyProp }}"
       src="{{ image[srcProp] }}?x-oss-process=image/resize,s_1000/quality,q_80/auto-orient,0/interlace,1/format,jpg" />
     <image 
+      bind:touchstart="onTouch"
+      bind:touchmove="onTouchMove"
+      bind:touchend="onTouchEnd"
       class="swiper__image swiper__image--duplicate {{ current === images.length ? 'swiper__image--active' : '' }}"
       bind:tap="viewPost"
       data-path="{{ images[0].path }}"
