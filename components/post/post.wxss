@@ -23,6 +23,11 @@
   font-weight: 500;
 }
 
+.post__level {
+  width: 60rpx;
+  vertical-align: middle;
+}
+
 .post__info {
   font-size: 24rpx;
   color: #ccc;

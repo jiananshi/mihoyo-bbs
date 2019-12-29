@@ -8,6 +8,10 @@
       src="//img-static.mihoyo.com/avatar/avatar{{ post.user.avatar }}.png" />
     <view>
       <text class="post__username">{{ post.user.nickname }}</text>
+      <image 
+        class="post__level"
+        mode="widthFix"
+        src="//img-static.mihoyo.com/level/level{{ post.user.levelExp.level }}.png" />
       <view class="post__info">
         <text>{{ post.user.introduce }}</text>
         <text>{{ post.forum_name }}</text>

@@ -41,7 +41,7 @@ Component({
       wx.getSystemInfo({
         success: ({ screenWidth }) => {
           const imageWidth = screenWidth * .9;
-          const sliderWidth = -imageWidth - SWIPER_IMAGE_MARGIN + SWIPER_IMAGE_EDGE_SHOWAREA;
+          const sliderWidth = -imageWidth + SWIPER_IMAGE_EDGE_SHOWAREA;
           swiperStates.imageWidth = imageWidth; // slider image width is 90%
           swiperStates.sliderWidth = sliderWidth;
           this.setData({ 
@@ -71,13 +71,13 @@ Component({
       swiperStates.intialX = swiperStates.currentX = pageX;
     },
     onTouchMove({ touches }) {
-      const { pageX } = touches[0];
+      const { pageX } = touches[0]; 
       const { currentX } = swiperStates;
       const movement = pageX - currentX;
       const sliderOffset = this.data.sliderOffset - (movement < 0 ? -movement : -movement);
       swiperStates.currentX = pageX;
       this.setData({ sliderOffset });
-    }
+    },
     onTouchEnd() {
       const { intialX, currentX, initialOffset } = swiperStates;
       const movement = currentX - intialX;
@@ -96,12 +96,11 @@ Component({
     swipe(direction: string = 'right') {
       const { current } = this.data;
       const { sliderWidth } = swiperStates;
-      const imagesCount = this.data.images.length;
       const next = direction === 'right'
         ? current + 1
         : current - 1;
       const offset = direction === 'right'
-        ? sliderWidth + next * (sliderWidth - SWIPER_IMAGE_EDGE_SHOWAREA)
+        ? sliderWidth + (next - 1) * SWIPER_IMAGE_MARGIN + next * (sliderWidth - SWIPER_IMAGE_EDGE_SHOWAREA)
         : sliderWidth + (next === -1 
             ? (-sliderWidth - SWIPER_IMAGE_EDGE_SHOWAREA)
             : next * (sliderWidth - SWIPER_IMAGE_EDGE_SHOWAREA));

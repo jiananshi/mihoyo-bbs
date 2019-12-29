@@ -41,6 +41,10 @@
 		"game": {
 			"list": []
 		},
+		"gamePlugin": {
+			"current": -1,
+			"list": []
+		},
 		"miniprogram": {
 			"current": 0,
 			"list": [
@@ -48,7 +52,7 @@
 					"id": 0,
 					"name": "post",
 					"pathName": "pages/post/post",
-					"query": "id=48767",
+					"query": "id=447557",
 					"scene": null
 				},
 				{

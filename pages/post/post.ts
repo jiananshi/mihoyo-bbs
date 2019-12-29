@@ -25,11 +25,12 @@ Page({
     const { id } = params;
     this.id = id;
     Promise.all([
-      request('forum/Post/mobilePostInfo', 'get', { post_id: id, read: 1 }),
+      request('post/wapi/getPostFull', 'get', { post_id: id }, 'takumi'),
       this.loadComments()
     ])
-    .then(([ post ]) => {
-      post.content = parseToNodes(post.content);
+    .then(([post]) => {
+      post = post.post.post;
+      // post.content = parseToNodes(post.content);
       post.created_at = formatDate(post.created_at);
       this.setData({ post });
     }, console.error)
@@ -37,10 +38,10 @@ Page({
   },
   loadComments() {
     const { num, floor_id } = this.data.commentParams;
-    return request('forum/Reply/mobileReplyList', 'get', Object.assign({ 
+    return request('post/wapi/hotReplyList', 'get', Object.assign({ 
       post_id: this.id
-    }, this.data.commentParams)).then(comments => {
-      comments.list.forEach(comment => comment.content = parseToNodes(comment.content));
+    }, this.data.commentParams), 'takumi').then(comments => {
+      // comments.list.forEach(comment => comment.content = parseToNodes(comment.content));
       this.setData({ 
         ['commentParams.floor_id']: floor_id + num,
         comments: [...this.data.comments, ...comments.list]

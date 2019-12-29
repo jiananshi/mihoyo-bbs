@@ -17,7 +17,11 @@ Page({
   },
   loadList() {
     const { list, page, num } = this.data.post;
-    return request('home/mobileHomeInfo', 'get', { page, num }, true).then(info => {
+    return request('home/mobileHomeInfo', 'get', { 
+      page, 
+      num,
+      gids: 1
+    }, 'static').then(info => {
       list.push(...info.hots);
       info.hots.forEach((hot: any) => {
         hot.imgsCover = hot.imgs && hot.imgs.length && hot.imgs.slice(0, 3);
@@ -36,9 +40,9 @@ Page({
     wx.showNavigationBarLoading({});
     this.swiper = this.selectComponent('#swiper');
     Promise.all([
-      request('home/forums', 'get', {}, true),
-      request('topic/getRecommendTopicList', 'get', {}, true),
-      request('user/Follow/recommendActiveUserList', 'get', { page_size: 10 }),
+      request('home/forums', 'get', {}, 'static'),
+      request('topic/getRecommendTopicList', 'get', {}, 'static'),
+      request('user/Follow/recommendActiveUserList', 'get', { page_size: 10 }, 'community'),
       this.loadList()
     ]).then(([ nav, topics, activeUsers ]) => {
       this.setData({

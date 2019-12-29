@@ -3,7 +3,7 @@ const req = require('request-promise');
 
 cloud.init();
 
-exports.main = async (event, context) => {
+exports.main = async event => {
   const { url, method, data } = event;
   return await req({
     uri: url,
